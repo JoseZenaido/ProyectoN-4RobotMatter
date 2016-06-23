@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Marker with images</title>
+	<!-- Links del hoja de estilo and pama de google and js -->
+	<link rel ="stylesheet" href="css/parallax.css">
+	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" 
+	rel="stylesheet" type="text/css" /> 
+
+	<script type="text/javascript"src="http://maps.google.com/maps/api/js?sensor=false">
+
+	</script>
+	<script type="text/javascript" src="js/imarkers.js"></script>
+	
+	<!-- Links de Redes Sociales -->
+
+	<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	</head>
+<body background="../img/3D_Digital_Art.jpg"  bgcolor="blue" text="blue" alink="green" >
+
+		<div id="heeader">
+			<img alt="logo" src="img/ParallaxLogoSmall.png"/>		
+			<span class="headerBanner">Parallax Global</span>
+			
+		
+			<a href="#" class="headerSmallText">Contact</a> 
+			<a href="#" class="headerSmallText">Press Room</a>
+			<a href="#" class="headerSmallText">Address</a>
+			<a href="#" class="headerSmallText">Help</a>
+			
+		</div>
+		<div id="left">
+			<p>
+				<!--  <a href="#">Arana</a><br /> -->
+				<!-- <a href="#">Ojeda</a><br />	-->	
+				<!-- <a href="#">Quiroja</a><br />-->
+				<!-- <a href="#">Orizaba</a><br />-->
+				
+			</p>
+			<nav>
+					<ul>
+					
+		    <li><a title="Opcion 1" href="#">Arana</a></li>
+		    <li><a title="Opcion 2" href="#">Ojeda</a></li>
+		    <li><a title="Opcion 3" href="#">Quiroja </a></li>
+		    <li><a title="Opcion 4" href="#">Orizaba </a></li>
+		    <li><a title="Opcion 5" href="#">Guadalajara</a></li>
+</ul>
+</nav>
+			
+		</div>
+		<div id="map">
+		
+		<!-- Empiea el Mapa -->
+		
+		<div>
+		<strong>Start:</strong>
+		<select id="start" onchange="calcRoute();">
+			<option value="Tampico, Tamaulipas, Mexico">Tampico  </option>
+			<option value="Veracruz, Veracruz-Llave, Mexico">Veracruz</option>
+			<option value="Aguascalientes, Aguascalientes, Mexico">Aguascalientes</option>
+			<option value="Monterrey, Nuevo Leon, Mexico">Monterrey</option>
+			<option value="San Luis Potosi, San Luis Potosi, Mexico">San Luis Potosi</option>
+			<option value="Matamoros, Tapms, Mexico">Matamoros</option>
+			<option value="Campeche, Belisario Domínguez, Mexico">Campeche</option>
+			<option value="Durango, Dgo, Mexico">Durango</option>
+			<option value="Hermosillo, Sonora, Mexico">Hermosillo</option>
+			<option value="Ciudad Victoria, Tamps, Mexico">Ciudad Victoria</option>
+			<option value="Acapulco, Guerrero, Mexico">Acapulco</option>
+			<option value="Cancún, Quintana Roo, Mexico">Cancún</option>
+	
+		</select>
+		<strong>Half:</strong>
+		<select id="half" onchange="calcRoute();">
+			<option value="Tampico, Tamaulipas, Mexico">Tampico</option>
+			<option value="Veracruz, Veracruz-Llave, Mexico">Veracruz</option>
+			<option value="Aguascalientes, Aguascalientes, Mexico">Aguascalientes</option>
+			<option value="Monterrey, Nuevo Leon, Mexico">Monterrey</option>
+			<option value="San Luis Potosi, San Luis Potosi, Mexico">San Luis Potosi</option>
+			<option value="Matamoros, Tapms, Mexico">Matamoros</option>
+			<option value="Campeche, Belisario Domínguez, Mexico">Campeche</option>
+			<option value="Durango, Dgo, Mexico">Durango</option>
+			<option value="Hermosillo, Sonora, Mexico">Hermosillo</option>
+			<option value="Ciudad Victoria, Tamps, Mexico">Ciudad Victoria</option>
+			<option value="Acapulco, Guerrero, Mexico">Acapulco</option>
+			<option value="Cancún, Quintana Roo, Mexico">Cancún</option>
+		</select>
+
+		<strong>End:</strong>
+		<select id="end" onchange="calcRoute1();">
+			<option value="Tampico, Tamaulipas, Mexico">Tampico</option>
+			<option value="Veracruz, Veracruz-Llave, Mexico">Veracruz</option>
+			<option value="Aguascalientes, Aguascalientes, Mexico">Aguascalientes</option>
+			<option value="Monterrey, Nuevo Leon, Mexico">Monterrey</option>
+			<option value="San Luis Potosi, San Luis Potosi, Mexico">San Luis Potosi</option>
+			<option value="Matamoros, Tapms, Mexico">Matamoros</option>
+			<option value="Campeche, Belisario Domínguez, Mexico">Campeche</option>
+			<option value="Durango, Dgo, Mexico">Durango</option>
+			<option value="Hermosillo, Sonora, Mexico">Hermosillo</option>
+			<option value="Ciudad Victoria, Tamps, Mexico">Ciudad Victoria</option>
+			<option value="Acapulco, Guerrero, Mexico">Acapulco</option>
+			<option value="Cancún, Quintana Roo, Mexico">Cancún</option>
+		</select>
+		</div>
+		<h3>Distance: <strong id="distance">0</strong> km.    
+			Months: <strong id="meses">0</strong> months      
+			Robots: <strong id="rob">0</strong> robots</h3> 
+
+		<h3>Distance two: <strong id="distance2">0</strong> km.
+			Months: <strong id="meses1">0</strong> months
+			Robots: <strong id="rob1">0</strong> robots</h3>
+		<div  id="div_map"   
+			style="width: 700px; height:600px"> 
+		</div>
+		<!-- Termina Mapa -->
+				
+		</div>
+		<div id="right">
+			<p>
+					<!--  <a href="http.wwwfacebook.com">Facebook</a><br /> -->
+					<!-- <a href="http.wwwfacebook.com">Facebook</a><br /> -->
+					<!-- <a href="http.wwwfacebook.com">Facebook</a><br /> -->
+					
+					<!-- SOCIAL - Nav -->
+					
+					<ul class="social-nav">
+					  <li class="item">
+					    <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+					  </li>
+					  <li class="item">
+					    <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+					  </li>
+					  <li class="item">
+					    <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
+					  </li>
+					  <li class="item">
+					    <a href="#"><i class="fa fa-google-plus"></i><span>Google Plus</span></a>
+					  </li>
+					  <li class="item">
+					    <a href="#"><i class="fa fa-tumblr"></i><span>Tumblr</span></a>
+					  </li>
+					</ul>
+			</p>
+		</div>
+		<div id="footer">
+			<hr />
+				<p>ParallaxGlobal<br /></p>
+				<a href="#" >Contact</a>
+				<a href="#" >Help</a>
+				<a href="#" >Address book</a>
+				
+				<a href="#" >
+				© Petróleos Mexicanos.
+Avenida Marina Nacional #329 C 3, Col. Verónica Anzures, Del. Miguel Hidalgo, 
+Distrito Federal C.P. 11300 (+52 55) 1944 2500.
+
+IFAI | Portal de Obligaciones de Transparencia | INFOMEX</a>
+				
+		</div>
+		
+</body>
+</html>
